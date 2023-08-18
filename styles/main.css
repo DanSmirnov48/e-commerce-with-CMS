@@ -1,0 +1,417 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+:root {
+  --primaryColor: #f09d51;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+  --main-font-family: 'Ropa Sans', sans-serif;
+  --main-font-color: #f2b632;
+  --main-font-dark-gray: #4d4d4d;
+  --main-footer-bg-color: #141414;
+  --main-font-family: 'Ropa Sans', sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+body {
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  font-family: 'Century Gothic';
+  transition: background 0.5s ease-out;
+}
+body.stop-scrolling {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+/* --------------- Navbar ---------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  z-index: 1;
+  transition: background-color 0.5s ease-in;
+  transition: height 0.3s ease-in;
+}
+.navbar.scrolling-active{
+  background-color: rgba(95, 85, 71, 0.95);
+  box-shadow: 0 5px 1rem rgba(0,0,0,0.8);
+  height: 70px;
+}
+.navbar-center {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center !important;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+.navbar-center img{
+  margin: auto;
+}
+.nav-icon{
+  font-size: 1.5rem;
+  color: white;
+  transition: font-size .5s ease-in;
+}
+.nav-icon.scrolling-active{
+  color: black;
+  font-size: 1.8rem;
+}
+.cart-btn {
+  position: relative;
+  cursor: pointer;
+}
+.cart-items {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--primaryColor);
+  padding: 0 5px;
+  border-radius: 30%;
+  color: var(--mainWhite);
+}
+/* --------------- End of Navbar ---------------- */
+/* --------------- Hero ---------------- */
+.hero {
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent),url("/images/furniture-731449_1920.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner {
+  position: absolute;
+  top: 20rem;
+  text-align: center;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.0);
+  display: inline-block;
+  padding: 2rem;
+  user-select: none;
+}
+.banner-title {
+  font-family: var(--main-font-family);
+  color: var(--main-font-color);
+  font-size: 5rem;
+  letter-spacing: -3px;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  user-select: none;
+}
+.title{
+  color: var(--mainWhite);
+  text-transform: capitalize;
+  letter-spacing: 4px;
+  margin-right: -5px;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4rem;
+  user-select: none;
+}
+.title::before,
+.title::after{
+  content: '';
+  width: 5rem;
+  height: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  background-color: var(--main-font-color);
+  border-radius: 20px;
+}
+.title::before{
+  left: -7rem;
+}
+.title::after{
+  right: -7rem;
+}
+.banner-btn {
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  font-size: 1.5rem;
+  background: var(--primaryColor);
+  color: var(--mainBlack);
+  border: 2px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 5rem;;
+}
+.banner-btn:hover {
+  background: transparent;
+  color: var(--primaryColor);
+  -webkit-text-stroke: 0.3px black;
+}
+.btn{
+  display: inline-block;
+  transition: all 650ms;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+.main-btn{
+  font-size: 1rem;
+  border: 2px solid #f2b632;
+  padding: 1rem 1.5rem;
+  letter-spacing: 3px;
+  margin-right: -3px;
+  background: transparent;
+  color: white;
+  transition: all 800ms;
+  text-decoration: none;
+}
+.main-btn:hover{
+  transform: translateY(-3px);
+  color: black;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+.main-btn:active{
+  transform: translateY(0);
+  box-shadow: none;
+}
+.banner-btn, 
+.main-btn:focus{
+  outline: none;
+}
+/* --------------- End of Hero ---------------- */
+/* --------------- Products ---------------- */
+
+.products {
+  padding: 4rem 0;
+  user-select: none;
+}
+.section-title h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+.products-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+}
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+.bag-btn {
+  position: absolute;
+  top: 70%;
+  right: 0;
+  background: var(--primaryColor);
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  transition: var(--mainTransition);
+  transform: translateX(101%);
+  cursor: pointer;
+}
+.bag-btn:hover {
+  color: var(--mainWhite);
+}
+.fa-shopping-cart {
+  margin-right: 0.5rem;
+}
+.img-container:hover .bag-btn {
+  transform: translateX(0);
+}
+.product-img {
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  transition: var(--mainTransition);
+}
+.img-container:hover .product-img {
+  opacity: 0.5;
+}
+.product h3 {
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+}
+.product h4 {
+  margin-top: 0.7rem;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  text-align: center;
+}
+
+/* ---------------End of Products ---------------- */
+/* --------------- Cart ---------------- */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: var(--mainTransition);
+  background: rgb(240, 157, 81, 0.5);
+  z-index: 2;
+  visibility: hidden;
+}
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  z-index: 3;
+  background: rgb(224, 209, 193);
+  padding: 1.5rem;
+  transition: var(--mainTransition);
+  transform: translateX(100%);
+}
+.showCart {
+  transform: translateX(0);
+}
+.transparentBcg {
+  visibility: visible;
+}
+@media screen and (min-width: 868px) {
+  .cart {
+    width: 35vw;
+    min-width: 450px;
+  }
+}
+.close-cart {
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.cart h2 {
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 2rem;
+}
+
+
+/*---------- Cart Item -------------------- */
+.cart-item {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 1.5rem;
+  margin: 2rem 0;
+}
+.cart-item img {
+  width: 130px;
+  height: 85px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+.cart-item h4 {
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+.cart-item h5 {
+  margin: 0.5rem 0;
+  letter-spacing: var(--mainSpacing);
+}
+.item-amount {
+  text-align: center;
+}
+.remove-item {
+  color: grey;
+  cursor: pointer;
+}
+.fa-chevron-up,
+.fa-chevron-down {
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .cart-item img {
+      width: 230px;
+      height: 155px;
+    }
+}
+/*---------- End of Cart Item -------------------- */
+
+.cart-footer {
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+}
+.cart-footer h3 {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+/* --------------- End of Cart ---------------- */
+
+@media screen and (min-width: 69px) {
+  .banner-title{
+    transform: translateY(4rem);
+    opacity: 0;
+    animation: .5s fadeUp .5s forwards;
+  }
+  .title{
+    transform: scale(2);
+    opacity: 0;
+    animation: fadeIn .5s forwards;
+  }
+  .banner .main-btn{
+    opacity: 0;
+    animation: .5s fade 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    0%{
+      transform: scale(2);
+      opacity: 0;
+    }
+    100%{
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeUp {
+    0%{
+      transform: translateY(4rem);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+}

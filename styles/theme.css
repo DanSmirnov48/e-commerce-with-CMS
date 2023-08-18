@@ -1,0 +1,74 @@
+.theme{
+	position: absolute;
+	top: 2.5rem;
+	right: 3rem;
+	display: block;
+}
+.theme.show{
+	display: block;
+}
+
+body.dark {
+	background: #292C35;
+}
+
+#Products.dark{
+  color: white;
+}
+
+.h3.dark{
+  color: white;
+}
+
+.label.dark{
+	background-color: #000;
+}
+
+.ball.dark{
+	background-color: #fff;
+}
+
+.checkbox {
+	opacity: 0;
+	position: absolute;
+	left: 10rem;
+}
+
+.label {
+	background-color: #fff;
+	border-radius: 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	position: relative;
+	height: 24px;
+	width: 47px;
+  transform: scale(1.5);
+  transition: background-color 0.5s ease-out;
+}
+
+.ball {
+	background-color: #000;
+	border-radius: 50%;
+	position: absolute;
+	top: 1.5px;
+	left: 2px;
+	height: 20px;
+	width: 20px;
+	transform: translateX(0px);
+  transition: transform 0.3s linear;
+}
+
+.checkbox:checked + .label .ball {
+	transform: translateX(23px);
+}
+
+.fa-moon {
+	color: #f1c40f;
+}
+
+.fa-sun {
+	color: #f39c12;
+}
